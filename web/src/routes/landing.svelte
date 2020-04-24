@@ -84,7 +84,7 @@ setInterval(() => {
   }
 
   background {
-    background-image: url("/assets/background_home.jpg");
+    background-image: url("/background_home.jpg");
     background-size: cover;
     background-position: 50%;
     background-repeat: no-repeat;
@@ -159,7 +159,7 @@ setInterval(() => {
     <div class="menu">
       <div class="menu-logo">
         <a href="#" class="menu-logo-a">
-          <img class="menu-logo-img" src={'assets/logo.png'} />
+          <img class="menu-logo-img" src={'logo.png'} />
         </a>
       </div>
       <div class="nav-list-wrapper">

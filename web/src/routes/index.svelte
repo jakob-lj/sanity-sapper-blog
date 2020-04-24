@@ -61,4 +61,4 @@
 </figure>
 
 <p><strong>Go to <a href="/blog">/blog</a> to see content loaded from <a href="https://www.sanity.io">Sanity</a></strong></p>
-<p><strong><a href="/landign">/landing</a> to see the landing page</strong></p>
+<p><strong><a href="/landing">/landing</a> to see the landing page</strong></p>

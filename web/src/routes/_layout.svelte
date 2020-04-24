@@ -14,9 +14,12 @@
 		box-sizing: border-box;
 	}
 </style>
-
+{#if segment !== 'landing'}
 <Nav {segment}/>
 
 <main>
 	<slot></slot>
 </main>
+{:else}
+<slot></slot>
+{/if}

@@ -11,6 +11,7 @@
     top: 0;
     z-index: 10;
     background-color: white;
+    box-shadow: 0 3px 11px #00000040;
 }
 
 
@@ -65,6 +66,32 @@
     justify-content: flex-end;
   }
 
+  .menu-mobile-button {
+    display: none;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 40px;
+    height: 8px;
+    background-color: #1d3244;
+    margin: 5px;
+  }
+
+  @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+  .menu-mobile-button {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    background: red;
+    flex-direction: column;
+  }
+  }
+
 </style>
 
 <div class="menuWrapper">
@@ -75,6 +102,11 @@
         </a>
         </div>
         <div class="nav-list-wrapper">
+        <div class="menu-mobile-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        </div>
         <div class="nav-list">
             <a href="/page/program">
             <div class="item">

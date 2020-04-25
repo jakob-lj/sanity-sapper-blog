@@ -1,7 +1,7 @@
 
 <script>
 
-let showMenu = false
+let showMenu = false;
 
 let disp = ''
 
@@ -11,10 +11,12 @@ function test(e) {
   console.log('hey there form test')
 }
 function toggleMenu() {
-  
+  console.log('toggling')
   if (showMenu) {
+    console.log('hiding')
     hide()
   } else {
+    console.log('showing')
     show()
   }
   showMenu = !showMenu
@@ -26,6 +28,7 @@ function show() {
 }
 
 function hide() {
+  showMenu = false
   disp = ""
   menuWrapper = "menuWrapper"
 }
@@ -153,7 +156,7 @@ function hide() {
   /*border-top: 3px solid #d4d4d4; => Works pretty well with just background color => adding more padding to compensate for missing whitespace*/
   margin: auto;
   background: #1d3244;
-  color: #d4d4d4;
+  color: white;
 
 }
 

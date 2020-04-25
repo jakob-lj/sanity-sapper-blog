@@ -167,7 +167,7 @@
 <div class={menuWrapper}>
   <div class="menu">
     <div class="menu-logo">
-      <a href="#" class="menu-logo-a">
+      <a href="/landing" class="menu-logo-a">
         <img class="menu-logo-img" src={'logo.png'} />
       </a>
     </div>

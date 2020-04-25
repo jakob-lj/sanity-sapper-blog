@@ -9,12 +9,9 @@
     console.log("hey there form test");
   }
   function toggleMenu() {
-    console.log("toggling");
     if (showMenu) {
-      console.log("hiding");
       hide();
     } else {
-      console.log("showing");
       show();
     }
     showMenu = !showMenu;

@@ -12,6 +12,8 @@
 		padding: 2em;
 		margin: 0 auto;
 		box-sizing: border-box;
+		margin-top: 6em;
+		z-index: 3;
 	}
 </style>
 {#if segment !== 'landing'}

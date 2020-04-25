@@ -1,60 +1,107 @@
+
 <script>
-	export let segment;
 </script>
 
 <style>
-	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
-		font-weight: 300;
-		padding: 0 1em;
-	}
 
-	ul {
-		margin: 0;
-		padding: 0;
-	}
+.menuWrapper {
+    width: 100%;
+    border-bottom: 3px solid #1d3244;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+}
 
-	/* clearfix */
-	ul::after {
-		content: '';
-		display: block;
-		clear: both;
-	}
 
-	li {
-		display: block;
-		float: left;
-	}
+.menu {
+    display: flex;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 10px 30px;
+    
+  }
 
-	.selected {
-		position: relative;
-		display: inline-block;
-	}
+  .menu-logo {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+  }
 
-	.selected::after {
-		position: absolute;
-		content: '';
-		width: calc(100% - 1em);
-		height: 2px;
-		background-color: rgb(255,62,0);
-		display: block;
-		bottom: -1px;
-	}
+  .menu-logo-a {
+    color: #333;
+    text-decoration: none;
+  }
 
-	a {
-		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
-	}
+  .menu-logo-img {
+    height: 64px;
+  }
+
+  .nav-list a {
+    text-decoration: none;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    font-size: 1.3em;
+    color: #1d3244;
+  }
+
+  .item:hover {
+    cursor: pointer;
+  }
+
+  .nav-list {
+    width: fit-content;
+    display: flex;
+  }
+
+  .nav-list-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
 </style>
 
-<nav>
-	<ul>
-		<li><a class='{segment === undefined ? "selected" : ""}' href='.'>home</a></li>
-		<li><a class='{segment === "about" ? "selected" : ""}' href='about'>about</a></li>
-
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch class='{segment === "blog" ? "selected" : ""}' href='blog'>blog</a></li>
-	</ul>
-</nav>
+<div class="menuWrapper">
+    <div class="menu">
+        <div class="menu-logo">
+        <a href="#" class="menu-logo-a">
+            <img class="menu-logo-img" src={'logo.png'} />
+        </a>
+        </div>
+        <div class="nav-list-wrapper">
+        <div class="nav-list">
+            <a href="/page/program">
+            <div class="item">
+                <span>PROGRAM</span>
+            </div>
+            </a>
+            <a href="/page/info">
+            <div class="item">
+                <span>INFO</span>
+            </div>
+            </a>
+            <a>
+            <div class="item">
+                <span>IDRETTER</span>
+            </div>
+            </a>
+            <a>
+            <div class="item">
+                <span>FRIVILLIGE</span>
+            </div>
+            </a>
+            <a>
+            <div class="item">
+                <span>OM STUDENTLEKENE</span>
+            </div>
+            </a>
+        </div>
+        </div>
+    </div>
+</div>

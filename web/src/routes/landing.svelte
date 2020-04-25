@@ -1,14 +1,34 @@
+<script context="module">
+  import client from "../sanityClient";
+  import Post from '../components/Post.svelte'
+  import Content from './../components/Content.svelte'
+ 
+  export function preload({ params, query }) {
+
+    return client
+      .fetch(
+        '*[_type == "post" && defined(slug.current) && publishedAt < now()]|order(publishedAt desc)[0..2]'
+      )
+      .then(posts => {
+        return { posts };
+      })
+      .catch(err => this.error(500, err));
+  }
+</script>
+
 <script>
+export let posts
+console.log(posts)
 
-let now = new Date()
-let end = new Date(2021, 0, 1) // january first
+     let now = new Date()
+      let end = new Date(2021, 0, 1) // january first
 
-let diff = end - now;
+      let diff = end - now;
 
-$: days = parseInt(diff / (1000*60*60*24)) // days
-$: hours = parseInt(((diff / (1000*60*60*24)) - days) * 24) // hours
-$: minutes = parseInt(((((diff / (1000*60*60*24)) - days) * 24) - hours)*60);
-$: seconds = parseInt((((((diff / (1000*60*60*24)) - days) * 24) - hours)*60 - minutes)*60);
+      $: days = parseInt(diff / (1000*60*60*24)) // days
+      $: hours = parseInt(((diff / (1000*60*60*24)) - days) * 24) // hours
+      $: minutes = parseInt(((((diff / (1000*60*60*24)) - days) * 24) - hours)*60);
+      $: seconds = parseInt((((((diff / (1000*60*60*24)) - days) * 24) - hours)*60 - minutes)*60);
 
 setInterval(() => {
     diff = diff - 1000
@@ -55,6 +75,10 @@ setInterval(() => {
   .nav-list {
     width: fit-content;
     display: flex;
+  }
+
+  .nav-list a {
+    text-decoration: none;
   }
 
   .nav-list-wrapper {
@@ -151,6 +175,17 @@ setInterval(() => {
   .timeout-clock .qualifier {
     font-weight: bold;
   }
+
+  .posts {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  
+  
+  }
 </style>
 
 <main>
@@ -164,12 +199,12 @@ setInterval(() => {
       </div>
       <div class="nav-list-wrapper">
         <div class="nav-list">
-          <a>
+          <a href="/page/program">
             <div class="item">
               <span>PROGRAM</span>
             </div>
           </a>
-          <a>
+          <a href="/page/info">
             <div class="item">
               <span>INFO</span>
             </div>
@@ -223,7 +258,13 @@ setInterval(() => {
 
   </wrapper>
   <news>
-    <container />
+    <Content>
+    <div class="posts">
+      {#each posts as post}
+          <Post color={'green'} post={post} />
+        {/each}
+    </div>
+    </Content>
   </news>
 
 </main>

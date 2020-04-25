@@ -14,10 +14,11 @@
     } else {
       show();
     }
-    showMenu = !showMenu;
+
   }
 
   function show() {
+    showMenu = true
     disp = " show";
     menuWrapper += " active";
   }

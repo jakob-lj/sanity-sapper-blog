@@ -1,10 +1,9 @@
 <script context="module">
   import client from "../sanityClient";
-  import Post from '../components/Post.svelte'
-  import Content from './../components/Content.svelte'
- 
-  export function preload({ params, query }) {
+  import Post from "../components/Post.svelte";
+  import Content from "./../components/Content.svelte";
 
+  export function preload({ params, query }) {
     return client
       .fetch(
         '*[_type == "post" && defined(slug.current) && publishedAt < now()]|order(publishedAt desc)[0..2]'
@@ -17,23 +16,53 @@
 </script>
 
 <script>
-export let posts
-console.log(posts)
+  export let posts;
 
-     let now = new Date()
-      let end = new Date(2021, 0, 1) // january first
+  let now = new Date();
+  let end = new Date(2021, 0, 1); // january first
 
-      let diff = end - now;
+  let diff = end - now;
 
-      $: days = parseInt(diff / (1000*60*60*24)) // days
-      $: hours = parseInt(((diff / (1000*60*60*24)) - days) * 24) // hours
-      $: minutes = parseInt(((((diff / (1000*60*60*24)) - days) * 24) - hours)*60);
-      $: seconds = parseInt((((((diff / (1000*60*60*24)) - days) * 24) - hours)*60 - minutes)*60);
+  $: days = parseInt(diff / (1000 * 60 * 60 * 24)); // days
+  $: hours = parseInt((diff / (1000 * 60 * 60 * 24) - days) * 24); // hours
+  $: minutes = parseInt(
+    ((diff / (1000 * 60 * 60 * 24) - days) * 24 - hours) * 60
+  );
+  $: seconds = parseInt(
+    (((diff / (1000 * 60 * 60 * 24) - days) * 24 - hours) * 60 - minutes) * 60
+  );
 
-setInterval(() => {
-    diff = diff - 1000
-}, 1000)
+  setInterval(() => {
+    diff = diff - 1000;
+  }, 1000);
 
+
+ // nav logic
+  let showMenu = false;
+
+  let disp = "";
+
+  let menuWrapper = "menu";
+
+  function toggleMenu() {
+    if (showMenu) {
+      hide();
+    } else {
+      show();
+    }
+  }
+
+  function show() {
+    showMenu=true; 
+    disp = " show";
+    menuWrapper += " active";
+  }
+
+  function hide() {
+    showMenu = false;
+    disp = "";
+    menuWrapper = "menu";
+  }
 </script>
 
 <style>
@@ -181,24 +210,101 @@ setInterval(() => {
     flex-wrap: wrap;
   }
 
+   .show {
+    display: block !important;
+  }
+
+  .hide {
+    display: none;
+  }
+
+    .menu-mobile-button {
+    display: none;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 40px;
+    height: 8px;
+    background-color: #1d3244;
+    margin: 5px;
+  }
+
   @media only screen and (max-width: 768px) {
-  /* For mobile phones: */
-  
-  
+    /* For mobile phones: */
+
+    .active {
+      border-bottom: none;
+      box-shadow: 0 3px 11px #000000cc;
+    }
+
+    .menu-logo {
+      margin: 0;
+    }
+.menu-logo img {
+      height: 64px;
+
+}
+    .menu {
+      flex-direction: column;
+      padding: 1em 0 0 0;
+      background: white;
+      box-shadow: 0px 6px 8px #00000055;
+      border-bottom: 3px solid #1d3244;
+    }
+
+    .menu-mobile-button {
+      display: block;
+      position: absolute;
+      right: 1em;
+      top: 1em;
+    }
+
+    .nav-list {
+      width: 100%;
+      flex-direction: column;
+      display: none;
+      /*border-top: 3px solid #d4d4d4; => Works pretty well with just background color*/
+    }
+
+    .item {
+      /*border-top: 3px solid #d4d4d4; => Works pretty well with just background color => adding more padding to compensate for missing whitespace*/
+      margin: auto;
+      background: #1d3244;
+      color: white;
+    }
+
+    .item span {
+      padding: 0.4em 0.8em 0.4em 0.8em;
+      text-align: center;
+      margin: auto;
+    }
+
+    .nav-list-wrapper {
+      width: 100%;
+    }
+
+    .nav-list:last-child .item:last-child {
+    }
   }
 </style>
 
 <main>
   <background />
   <wrapper>
-    <div class="menu">
+    <div class={menuWrapper}>
       <div class="menu-logo">
         <a href="#" class="menu-logo-a">
           <img class="menu-logo-img" src={'logo.png'} />
         </a>
       </div>
+          <div class="menu-mobile-button" on:click={toggleMenu}>
+      <div class="bar" />
+      <div class="bar" />
+      <div class="bar" />
+    </div>
       <div class="nav-list-wrapper">
-        <div class="nav-list">
+        <div class={"nav-list" + disp}>
           <a href="/page/program">
             <div class="item">
               <span>PROGRAM</span>
@@ -259,11 +365,11 @@ setInterval(() => {
   </wrapper>
   <news>
     <Content>
-    <div class="posts">
-      {#each posts as post}
-          <Post color={'green'} post={post} />
+      <div class="posts">
+        {#each posts as post}
+          <Post color={'green'} {post} />
         {/each}
-    </div>
+      </div>
     </Content>
   </news>
 

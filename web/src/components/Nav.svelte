@@ -3,7 +3,7 @@
 
 let showMenu = false
 
-let disp = 'none'
+let disp = ''
 
 let menuWrapper = "menuWrapper"
 
@@ -21,12 +21,12 @@ function toggleMenu() {
 }
 
 function show() {
-  disp = "block"
+  disp = " show"
   menuWrapper += " active"
 }
 
 function hide() {
-  disp = "none"
+  disp = ""
   menuWrapper = "menuWrapper"
 }
 
@@ -71,6 +71,14 @@ function hide() {
 
   .nav-list a {
     text-decoration: none;
+  }
+
+  .show {
+    display: block !important;
+  }
+
+  .hide {
+    display: none;
   }
 
   .item {
@@ -137,6 +145,7 @@ function hide() {
   .nav-list {
     width: 100%;
     flex-direction: column;
+    display: none;
     /*border-top: 3px solid #d4d4d4; => Works pretty well with just background color*/
   }
 
@@ -179,7 +188,7 @@ function hide() {
           <div class="bar"></div>
         </div>
         <div class="nav-list-wrapper">
-        <div class="nav-list" style={`display: ${disp}`} on:click={hide}>
+        <div class={"nav-list" + disp} on:click={hide}>
             <a href="/page/program">
             <div class="item">
                 <span>PROGRAM</span>

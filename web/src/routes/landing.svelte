@@ -279,6 +279,9 @@
       box-shadow: 0px 6px 8px #00000029;
       border-bottom: 3px solid #1d3244;
       z-index: 1;
+      position: fixed;
+      width: 100%;
+      height: 69px;
     }
 
     .menu-mobile-button {

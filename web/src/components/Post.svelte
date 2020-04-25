@@ -75,6 +75,15 @@ const urlFor = (source) => {
   /* For mobile phones: */
     .post {
         width: 100%;
+        margin-top: 3em;
+    }
+
+    .mainImage{
+      height: 180px;
+    }
+
+    .title {
+      font-size: 1.7em;
     }
   
   }

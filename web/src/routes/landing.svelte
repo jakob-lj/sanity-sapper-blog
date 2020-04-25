@@ -233,9 +233,36 @@
   @media only screen and (max-width: 768px) {
     /* For mobile phones: */
 
+    inner-wrapper {
+      top: 38%;
+      position: absolute;
+      z-index: 0;
+    }
+
+
+  title {
+    font-size: 2em;
+  }
+
+  .timeout-clock .time {
+    font-size: 2em;
+  }
+
+  wrapper {
+    height: 500px;
+  }
+
+
+  .timeout-clock .element {
+    font-size: .9em;
+  }
+  .t {
+    font-size: 1em;
+  }
+
     .active {
-      border-bottom: none;
-      box-shadow: 0 3px 11px #000000cc;
+      border-bottom: none !important;
+      box-shadow: 0 3px 11px #000000cc !important;
     }
 
     .menu-logo {
@@ -249,8 +276,9 @@
       flex-direction: column;
       padding: 1em 0 0 0;
       background: white;
-      box-shadow: 0px 6px 8px #00000055;
+      box-shadow: 0px 6px 8px #00000029;
       border-bottom: 3px solid #1d3244;
+      z-index: 1;
     }
 
     .menu-mobile-button {
@@ -282,6 +310,7 @@
 
     .nav-list-wrapper {
       width: 100%;
+      z-index: 2;
     }
 
     .nav-list:last-child .item:last-child {

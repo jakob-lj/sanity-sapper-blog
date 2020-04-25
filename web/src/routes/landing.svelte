@@ -234,9 +234,9 @@
     /* For mobile phones: */
 
     inner-wrapper {
-      top: 38%;
-      position: absolute;
-      z-index: 0;
+      top: 31%;
+      position: fixed;
+      z-index: -1;
     }
 
 

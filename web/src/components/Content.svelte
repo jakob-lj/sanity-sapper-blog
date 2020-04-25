@@ -8,6 +8,7 @@
     margin: auto;
     padding-top: 3em;
     padding-bottom: 3em;
+    z-index: 0;
 }
 </style>
 

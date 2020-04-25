@@ -1,5 +1,35 @@
 
 <script>
+
+let showMenu = false
+
+let disp = 'none'
+
+let menuWrapper = "menuWrapper"
+
+function test(e) {
+  console.log('hey there form test')
+}
+function toggleMenu() {
+  
+  if (showMenu) {
+    hide()
+  } else {
+    show()
+  }
+  showMenu = !showMenu
+}
+
+function show() {
+  disp = "block"
+  menuWrapper += " active"
+}
+
+function hide() {
+  disp = "none"
+  menuWrapper = "menuWrapper"
+}
+
 </script>
 
 <style>
@@ -81,33 +111,75 @@
   @media only screen and (max-width: 768px) {
   /* For mobile phones: */
 
+  .active {
+    border-bottom: none;
+    box-shadow: 0 3px 11px #000000cc;
+  }
+
+    .menu-logo {
+      margin: 0;
+    }
+
+    .menu {
+      flex-direction: column;
+      padding: 1em 0 0 0 ;
+      
+    }
+
+
   .menu-mobile-button {
     display: block;
+    position: absolute;
+    right: 1em;
+    top: 1em;
   }
 
   .nav-list {
-    display: none;
-    background: red;
+    width: 100%;
     flex-direction: column;
+    /*border-top: 3px solid #d4d4d4; => Works pretty well with just background color*/
+  }
+
+.item {
+  /*border-top: 3px solid #d4d4d4; => Works pretty well with just background color => adding more padding to compensate for missing whitespace*/
+  margin: auto;
+  background: #1d3244;
+  color: #d4d4d4;
+
+}
+
+
+  .item span {
+    padding: .4em .8em .4em .8em;
+    text-align: center;
+    margin: auto;
+  }
+
+  .nav-list-wrapper {
+    width: 100%;
+  }
+
+  .nav-list:last-child .item:last-child {
+    
   }
   }
 
 </style>
 
-<div class="menuWrapper">
+<div class={menuWrapper}>
     <div class="menu">
         <div class="menu-logo">
         <a href="#" class="menu-logo-a">
             <img class="menu-logo-img" src={'logo.png'} />
         </a>
         </div>
-        <div class="nav-list-wrapper">
-        <div class="menu-mobile-button">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+        <div class="menu-mobile-button" on:click={toggleMenu}>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
-        <div class="nav-list">
+        <div class="nav-list-wrapper">
+        <div class="nav-list" style={`display: ${disp}`} on:click={hide}>
             <a href="/page/program">
             <div class="item">
                 <span>PROGRAM</span>

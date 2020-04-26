@@ -23,7 +23,7 @@ import {getLocale} from './../locale'
   let {session} = stores()
 
   let now = new Date();
-  let end = new Date(2021, 1, 24); // january first
+  let end = new Date(2021, 1, 24, 12, 0, 0); // january first
 
   let diff = end - now;
 
@@ -407,5 +407,6 @@ import {getLocale} from './../locale'
       </div>
     </Content>
   </news>
+  <a href="/links"style="display: none"></a>
 
 </main>

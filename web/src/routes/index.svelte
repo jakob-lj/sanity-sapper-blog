@@ -63,5 +63,5 @@
 <p><strong>Go to <a href="/blog">/blog</a> to see content loaded from <a href="https://www.sanity.io">Sanity</a></strong></p>
 <p><strong><a href="/landing">/landing</a> to see the landing page</strong></p>
 <p><strong><a href="/page">/page</a> to see the all available pages</strong></p>
-<p><strong><a href="/api/en">/api/en</a> set english language</strong></p>
-<p><strong><a href="/page">/api/nb</a> to set norwegian language</strong></p>
+<p><strong><a href="/lang/en">/api/en</a> set english language</strong></p>
+<p><strong><a href="/lang/nb">/api/nb</a> to set norwegian language</strong></p>

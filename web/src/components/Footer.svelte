@@ -1,12 +1,12 @@
 <script>
 let norsk = () => {
-    fetch('/api/nb')
-    window.location.href = "/"
+    fetch('/lang/nb')
+    window.location.href = "/landing"
 }
 
 let engelsk = () => {
-    fetch('/api/en')
-    window.location.href = "/"
+    fetch('/lang/en')
+    window.location.href = "/landing"
 }
 
 </script>

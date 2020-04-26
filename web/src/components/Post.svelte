@@ -15,7 +15,7 @@ const urlFor = (source) => {
   let imageUrl = urlFor(post.mainImage).url();
   let backStyle = `background-image: url('${imageUrl}')`;
 
-  let link = `/blog/${post.slug.current}`
+  let link = `/news/${post.slug.current}`
 
 </script>
 

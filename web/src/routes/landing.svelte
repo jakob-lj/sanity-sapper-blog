@@ -19,7 +19,7 @@
   export let posts;
 
   let now = new Date();
-  let end = new Date(2021, 0, 1); // january first
+  let end = new Date(2021, 1, 24); // january first
 
   let diff = end - now;
 
@@ -371,7 +371,7 @@
       <inner-wrapper>
         <title>STUDENTLEKENE 2021</title>
         <div class="time-wrapper">
-          <span class="t">01. - 01. januar 2021</span>
+          <span class="t">24. - 28. februar 2021</span>
         </div>
         <div class="timeout-clock">
           <div class="element">

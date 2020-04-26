@@ -1,7 +1,7 @@
 <script>
 import client from './../sanityClient.js'
     import imageUrlBuilder from '@sanity/image-url'
-
+import {getLocale} from './../locale'
 const builder = imageUrlBuilder(client)
 const urlFor = (source) => {
   return builder.image(source)
@@ -93,7 +93,7 @@ const urlFor = (source) => {
   <div style={backStyle} class="mainImage" />
   <div class="title-wrapper">
     <h1 class="title">
-      <a class="d" href={link}>{post.title}</a>
+      <a class="d" href={link}>{getLocale(post.title)}</a>
     </h1>
     <a class="callToAction" href={link}>Les mer</a>
   </div>

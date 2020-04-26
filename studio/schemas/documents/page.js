@@ -1,4 +1,4 @@
-import {format} from 'date-fns'
+import { format } from 'date-fns'
 
 export default {
   name: 'page',
@@ -7,7 +7,7 @@ export default {
   fields: [
     {
       name: 'title',
-      type: 'string',
+      type: 'localeTitle',
       title: 'Title',
       description: 'Title of page'
     },
@@ -41,7 +41,7 @@ export default {
     },
     {
       name: 'body',
-      type: 'bodyPortableText',
+      type: 'localeBody',
       title: 'Body'
     }
   ],
@@ -77,12 +77,12 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'title.nb',
       publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare ({title = 'No title', publishedAt, slug, media}) {
+    prepare({ title = 'No title', publishedAt, slug, media }) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {

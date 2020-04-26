@@ -2,6 +2,8 @@
   import client from "../../sanityClient";
   import BlockContent from "@movingbrands/svelte-portable-text";
   import serializers from "../../components/serializers";
+  import {getLocale, getLocaleBlock} from './../../locale'
+  
   export async function preload({ params }) {
     // the `slug` parameter is available because
     // this file is called [slug].html
@@ -25,11 +27,15 @@
     const page = await client
       .fetch(query, { slug })
       .catch(err => this.error(500, err));
+      page.title = getLocale(page.title)
+      console.log(page.body)
+      page.body = getLocaleBlock(page.body)
     return { page };
   }
 </script>
 
 <script>
+
   export let page;
 </script>
 

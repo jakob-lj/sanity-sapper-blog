@@ -1,4 +1,7 @@
 <script>
+
+import elements from './../links/nav'
+import {getLocale} from './../locale'
   let showMenu = false;
 
   let disp = "";
@@ -82,6 +85,7 @@
     margin-right: 30px;
     font-size: 1.3em;
     color: #1d3244;
+    text-transform: uppercase;
   }
 
   .item:hover {
@@ -178,31 +182,13 @@
     </div>
     <div class="nav-list-wrapper">
       <div class={'nav-list' + disp} on:click={hide}>
-        <a href="/page/program">
-          <div class="item">
-            <span>PROGRAM</span>
-          </div>
-        </a>
-        <a href="/page/info">
-          <div class="item">
-            <span>INFO</span>
-          </div>
-        </a>
-        <a>
-          <div class="item">
-            <span>IDRETTER</span>
-          </div>
-        </a>
-        <a>
-          <div class="item">
-            <span>FRIVILLIGE</span>
-          </div>
-        </a>
-        <a>
-          <div class="item">
-            <span>OM STUDENTLEKENE</span>
-          </div>
-        </a>
+      {#each elements as element}
+      <a href={element.link}>
+      <div class="item">
+      <span>{getLocale(element)}</span>
+      </div>
+      </a>
+      {/each}
       </div>
     </div>
   </div>

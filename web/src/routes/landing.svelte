@@ -6,6 +6,7 @@
 import {getLocale} from './../locale'
 
   export function preload({ params, query }) {
+    console.log(query)
     return client
       .fetch(
         '*[_type == "post" && defined(slug.current) && publishedAt < now()]|order(publishedAt desc)[0..2]'
@@ -19,6 +20,8 @@ import {getLocale} from './../locale'
 
 <script>
   export let posts;
+  import {stores} from '@sapper/app'
+  let {session} = stores()
 
   let now = new Date();
   let end = new Date(2021, 1, 24); // january first
@@ -37,6 +40,7 @@ import {getLocale} from './../locale'
   setInterval(() => {
     diff = diff - 1000;
   }, 1000);
+
 
 
  // nav logic
@@ -355,7 +359,7 @@ import {getLocale} from './../locale'
       {#each elements as element}
       <a href={element.link}>
       <div class="item">
-      <span>{getLocale(element)}</span>
+      <span>{getLocale(element, $session.lang)}</span>
       </div>
       </a>
       {/each}

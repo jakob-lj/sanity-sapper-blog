@@ -1,3 +1,4 @@
+
 const getLocaleLang = (obj, lang) => {
     if (obj[lang]) {
         return obj[lang]
@@ -12,13 +13,12 @@ const getLocaleBlockLang = (obj, lang) => {
         return []
 
     }
-        
 }
 
-export const getLocale = (obj) => {
-    return getLocaleLang(obj, 'nb')
+export const getLocale = (obj, l) => {
+    return getLocaleLang(obj, l || 'nb')
 }
 
-export const getLocaleBlock = (obj) => {
-    return getLocaleBlockLang(obj, 'nb')
+export const getLocaleBlock = (obj, l) => {
+    return getLocaleBlockLang(obj, l || 'nb')
 }

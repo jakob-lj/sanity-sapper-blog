@@ -6,7 +6,8 @@ const builder = imageUrlBuilder(client)
 const urlFor = (source) => {
   return builder.image(source)
 }
-
+import {stores} from '@sapper/app'
+  let {session} = stores()
 
   export let post;
   export let color;
@@ -93,7 +94,7 @@ const urlFor = (source) => {
   <div style={backStyle} class="mainImage" />
   <div class="title-wrapper">
     <h1 class="title">
-      <a class="d" href={link}>{getLocale(post.title)}</a>
+      <a class="d" href={link}>{getLocale(post.title, $session.lang)}</a>
     </h1>
     <a class="callToAction" href={link}>Les mer</a>
   </div>

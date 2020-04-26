@@ -2,6 +2,9 @@
 
 import elements from './../links/nav'
 import {getLocale} from './../locale'
+  import { stores } from '@sapper/app'
+  
+  const { session } = stores()
   let showMenu = false;
 
   let disp = "";
@@ -185,7 +188,7 @@ import {getLocale} from './../locale'
       {#each elements as element}
       <a href={element.link}>
       <div class="item">
-      <span>{getLocale(element)}</span>
+      <span>{getLocale(element, $session.lang)}</span>
       </div>
       </a>
       {/each}

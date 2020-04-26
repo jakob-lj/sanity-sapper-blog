@@ -1,14 +1,14 @@
 <script context="module">
   import client from "../../sanityClient";
   import {getLocale} from './../../locale'
-  export function preload({ params, query }) {
+  export function preload({ params, query }, session) {
     return client
       .fetch(
         '*[_type == "post" && defined(slug.current) && publishedAt < now()]|order(publishedAt desc)'
       )
       .then(posts => {
         posts.forEach(p => {
-          p.title = getLocale(p.title)
+          p.title = getLocale(p.title, session.lang)
         })
         return { posts };
       })

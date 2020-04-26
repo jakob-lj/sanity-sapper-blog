@@ -11,7 +11,7 @@ const elements = [
     },
     {
         link:'/page/sports',
-        nb:'sports',
+        nb:'idretter',
         en:'sports'
     },
     {

@@ -3,7 +3,7 @@
   import BlockContent from "@movingbrands/svelte-portable-text";
   import serializers from "../../components/serializers";
   import {getLocale, getLocaleBlock} from './../../locale'
-  export async function preload({ params }) {
+  export async function preload({ params }, session) {
     // the `slug` parameter is available because
     // this file is called [slug].html
     const { slug } = params;
@@ -26,8 +26,8 @@
     const post = await client
       .fetch(query, { slug })
       .catch(err => this.error(500, err));
-      post.title = getLocale(post.title)
-      post.body = getLocaleBlock(post.body)
+      post.title = getLocale(post.title, session.lang)
+      post.body = getLocaleBlock(post.body, session.lang)
     return { post };
   }
 </script>

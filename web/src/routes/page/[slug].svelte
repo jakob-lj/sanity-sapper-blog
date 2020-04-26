@@ -4,7 +4,7 @@
   import serializers from "../../components/serializers";
   import {getLocale, getLocaleBlock} from './../../locale'
   
-  export async function preload({ params }) {
+  export async function preload({ params }, session) {
     // the `slug` parameter is available because
     // this file is called [slug].html
     const { slug } = params;
@@ -27,9 +27,9 @@
     const page = await client
       .fetch(query, { slug })
       .catch(err => this.error(500, err));
-      page.title = getLocale(page.title)
+      page.title = getLocale(page.title, session.lang)
       console.log(page.body)
-      page.body = getLocaleBlock(page.body)
+      page.body = getLocaleBlock(page.body, session.lang)
     return { page };
   }
 </script>

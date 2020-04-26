@@ -15,14 +15,12 @@ polka() // You can also use Express
 			if (req.originalUrl === '/lang/nb') {
 				const inAYear = new Date()
 				inAYear.setTime(inAYear.getTime() + 1000*60*60*24*365)
-				console.log(inAYear)
 				res.setHeader('Set-Cookie', `lang=nb; HttpOnly; Path=/`)
 				res.end()
 			}
 			if (req.originalUrl === '/lang/en') {
 				const inAYear = new Date()
 				inAYear.setTime(inAYear.getTime() + 1000*60*60*24*365)
-				console.log(inAYear)
 				res.setHeader('Set-Cookie', `lang=en; HttpOnly; Path=/`)
 				res.end()
 			}

@@ -28,7 +28,6 @@
       .fetch(query, { slug })
       .catch(err => this.error(500, err));
       page.title = getLocale(page.title, session.lang)
-      console.log(page.body)
       page.body = getLocaleBlock(page.body, session.lang)
     return { page };
   }

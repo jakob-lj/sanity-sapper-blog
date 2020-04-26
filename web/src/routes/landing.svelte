@@ -6,7 +6,6 @@
 import {getLocale} from './../locale'
 
   export function preload({ params, query }) {
-    console.log(query)
     return client
       .fetch(
         '*[_type == "post" && defined(slug.current) && publishedAt < now()]|order(publishedAt desc)[0..2]'

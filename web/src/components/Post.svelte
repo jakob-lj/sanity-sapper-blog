@@ -11,7 +11,6 @@ import {stores} from '@sapper/app'
 
   export let post;
   export let color;
-  console.log(post);
   let sty = `background-color:${color}`;
   let imageUrl = urlFor(post.mainImage).url();
   let backStyle = `background-image: url('${imageUrl}')`;

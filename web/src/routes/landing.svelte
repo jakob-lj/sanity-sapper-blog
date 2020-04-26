@@ -230,6 +230,18 @@
     margin: 5px;
   }
 
+  .news-title-wrapper {
+    margin: 0 auto;
+    border-bottom: 3px solid #1d3244;
+    color: #1d3244;
+    width: fit-content;
+  }
+
+  .news-title-wrapper h1 {
+    color: #1d3244;
+    padding: 0 20px 0 20px;
+  }
+
   @media only screen and (max-width: 768px) {
     /* For mobile phones: */
 
@@ -397,6 +409,9 @@
   </wrapper>
   <news>
     <Content>
+    <div class="news-title-wrapper">
+      <h1>Nyheter</h1>
+    </div>
       <div class="posts">
         {#each posts as post}
           <Post color={'green'} {post} />

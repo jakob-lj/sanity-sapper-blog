@@ -5,7 +5,7 @@
   "version": "0.0.13",
   "scripts": {
     "dev": "sapper dev",
-    "docker:build":"sapper build",
+    "docker:build": "sapper build",
     "build": "sapper export",
     "export": "sapper export",
     "start": "node __sapper__/build",
@@ -19,6 +19,7 @@
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "groq": "^0.147.0",
+    "nodemon": "^2.0.3",
     "polka": "^0.5.2",
     "sirv": "^0.4.2"
   },

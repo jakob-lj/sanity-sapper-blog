@@ -29,6 +29,8 @@ let toggleLang = () => {
     showLang = !showLang
 }
 
+$: selectedLang = $session.lang || 'nb'
+
 </script>
 
 <style>
@@ -56,7 +58,7 @@ let toggleLang = () => {
     border: 1px solid #eee;
     display: flex;
     border-radius: 5px;
-    padding-right: 1.84em;
+    padding-right: 1.5em;
     margin: auto;
     position: relative;
     cursor: pointer;
@@ -65,6 +67,7 @@ let toggleLang = () => {
 .lang-img {
     height: 2em;
     display: block;
+    width: 3em;
 }
 
 .arrow-wrapper {
@@ -136,7 +139,7 @@ let toggleLang = () => {
     <div style="color: white">
     
     <div class="lang-wrapper" on:click={toggleLang}>
-        <img class="lang-img" src="/nb.svg" alt="flag"/>
+        <img class="lang-img" src={`/${selectedLang}.svg`} alt="flag"/>
         <div class="arrow-wrapper">
             <Arrow up={showLang} />
         </div>

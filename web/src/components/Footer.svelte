@@ -1,11 +1,11 @@
 <script>
 let norsk = () => {
-    fetch('/lang/nb')
+    fetch('https://cookies.sl.jakoblj.xyz/nb')
     window.location.href = "/landing"
 }
 
 let engelsk = () => {
-    fetch('/lang/en')
+    fetch('https://cookies.sl.jakoblj.xyz/en')
     window.location.href = "/landing"
 }
 

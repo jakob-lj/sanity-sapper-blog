@@ -5,6 +5,7 @@
   "version": "0.0.13",
   "scripts": {
     "dev": "sapper dev",
+    "docker:build":"sapper build",
     "build": "sapper export",
     "export": "sapper export",
     "start": "node __sapper__/build",
